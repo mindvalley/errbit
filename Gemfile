@@ -112,3 +112,5 @@ end
 
 gem 'turbo-sprockets-rails3'
 gem 'rvm-capistrano'
+gem 'rainbows'
+gem 'eventmachine'
