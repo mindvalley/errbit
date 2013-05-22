@@ -1,41 +1,57 @@
+GIT
+  remote: https://github.com/NARKOZ/gitlab.git
+  revision: 53d7a8a86dfed63e56eeb16ea496bb7a82de337e
+  specs:
+    gitlab (2.2.0)
+      httparty
+
 GEM
   remote: http://rubygems.org/
   specs:
     SystemTimer (1.2.3)
-    actionmailer (3.2.8)
-      actionpack (= 3.2.8)
-      mail (~> 2.4.4)
+    actionmailer (3.2.13)
+      actionpack (= 3.2.13)
+      mail (~> 2.5.3)
     actionmailer_inline_css (1.3.1)
       actionmailer (>= 3.0.0)
       nokogiri (>= 1.4.4)
       premailer (>= 1.7.1)
-    actionpack (3.2.8)
-      activemodel (= 3.2.8)
-      activesupport (= 3.2.8)
+    actionpack (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
-      rack (~> 1.4.0)
+      rack (~> 1.4.5)
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
-      sprockets (~> 2.1.3)
-    activemodel (3.2.8)
-      activesupport (= 3.2.8)
+      sprockets (~> 2.2.1)
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
       builder (~> 3.0.0)
-    activerecord (3.2.8)
-      activemodel (= 3.2.8)
-      activesupport (= 3.2.8)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.8)
-      activemodel (= 3.2.8)
-      activesupport (= 3.2.8)
-    activesupport (3.2.8)
-      i18n (~> 0.6)
+    activeresource (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
       multi_json (~> 1.0)
     addressable (2.3.4)
+    airbrake (3.1.12)
+      activesupport
+      builder
+      json
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.8.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     bitbucket_rest_api (0.1.2)
       faraday (~> 0.8.1)
       faraday_middleware (~> 0.8.1)
@@ -43,10 +59,11 @@ GEM
       multi_json (~> 1.3)
       nokogiri (~> 1.5.2)
       simple_oauth
-    bson (1.6.2)
-    bson_ext (1.6.2)
-      bson (~> 1.6.2)
+    bson (1.8.6)
+    bson_ext (1.8.6)
+      bson (~> 1.8.6)
     builder (3.0.4)
+    callsite (0.0.11)
     campy (0.1.3)
       multi_json (~> 1.0)
     capistrano (2.15.4)
@@ -55,7 +72,6 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capistrano_colors (0.5.5)
     capybara (2.1.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -63,12 +79,20 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.0.9)
+    colorize (0.5.8)
     columnize (0.3.6)
+    coveralls (0.6.7)
+      colorize
+      multi_json (~> 1.3)
+      rest-client
+      simplecov (>= 0.7)
+      thor
     crack (0.3.2)
     css_parser (1.3.4)
       addressable
     daemons (1.1.9)
     database_cleaner (0.6.7)
+    debug_inspector (0.0.2)
     debugger (1.6.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -80,6 +104,7 @@ GEM
       orm_adapter (~> 0.0.3)
       warden (~> 1.1)
     diff-lcs (1.2.4)
+    dotenv (0.7.0)
     email_spec (1.4.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -92,6 +117,9 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.8.8)
       faraday (>= 0.7.4, < 0.9)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     haml (4.0.3)
       tilt
     happymapper (0.4.0)
@@ -101,6 +129,7 @@ GEM
     highline (1.6.19)
     hike (1.2.2)
     hipchat (0.9.0)
+      httparty
       httparty
     hoi (0.0.6)
       httparty (> 0.6.0)
@@ -113,7 +142,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
     httpauth (0.2.0)
-    i18n (0.6.4)
+    i18n (0.6.1)
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)
       responders (~> 0.9)
@@ -134,17 +163,20 @@ GEM
       activesupport (>= 3.0.0)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
-    mail (2.4.4)
-      i18n (>= 0.4.0)
+    mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_request (0.2.5)
+      callsite
+      rack-contrib
+      railties
     method_source (0.8.1)
     mime-types (1.23)
-    mongo (1.6.2)
-      bson (~> 1.6.2)
-    mongoid (2.4.12)
+    mongo (1.8.6)
+      bson (~> 1.8.6)
+    mongoid (2.7.1)
       activemodel (~> 3.1)
-      mongo (<= 1.6.2)
+      mongo (~> 1.8)
       tzinfo (~> 0.3.22)
     mongoid_rails_migrations (1.0.1)
       activesupport (>= 3.2.0)
@@ -164,7 +196,6 @@ GEM
     nokogiri (1.5.9)
     nokogiri-happymapper (0.5.7)
       nokogiri (~> 1.5)
-    oa-core (0.3.2)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -191,11 +222,13 @@ GEM
       activeresource (>= 2.3.0)
     pivotal-tracker (0.5.10)
       builder
+      builder
       crack
       happymapper (>= 0.3.2)
       nokogiri (>= 1.4.3)
       nokogiri (>= 1.5.5)
       nokogiri-happymapper (>= 0.5.4)
+      rest-client (~> 1.6.0)
       rest-client (~> 1.6.0)
     polyglot (0.3.3)
     premailer (1.7.3)
@@ -210,24 +243,26 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-ssl (1.3.3)
       rack
     rack-ssl-enforcer (0.2.5)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (3.2.8)
-      actionmailer (= 3.2.8)
-      actionpack (= 3.2.8)
-      activerecord (= 3.2.8)
-      activeresource (= 3.2.8)
-      activesupport (= 3.2.8)
+    rails (3.2.13)
+      actionmailer (= 3.2.13)
+      actionpack (= 3.2.13)
+      activerecord (= 3.2.13)
+      activeresource (= 3.2.13)
+      activesupport (= 3.2.13)
       bundler (~> 1.0)
-      railties (= 3.2.8)
+      railties (= 3.2.13)
     rails_autolink (1.0.9)
       rails (~> 3.1)
-    railties (3.2.8)
-      actionpack (= 3.2.8)
-      activesupport (= 3.2.8)
+    railties (3.2.13)
+      actionpack (= 3.2.13)
+      activesupport (= 3.2.13)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
@@ -247,10 +282,6 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     ri_cal (0.8.8)
-    rspec (2.13.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -275,9 +306,14 @@ GEM
     rvm-capistrano (1.3.0)
       capistrano (>= 2.0.0)
     simple_oauth (0.2.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     slop (3.4.5)
-    sprockets (2.1.3)
+    sprockets (2.2.2)
       hike (~> 1.2)
+      multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     therubyracer (0.11.4)
@@ -293,18 +329,19 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    turbo-sprockets-rails3 (0.2.13)
-      railties (>= 3.1.0, < 3.2.9)
+    turbo-sprockets-rails3 (0.3.6)
+      railties (> 3.2.8, < 4.0.0)
       sprockets (>= 2.0.0)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    underscore-rails (1.4.4)
     unicorn (4.6.2)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    useragent (0.3.2)
+    useragent (0.4.16)
     warden (1.2.1)
       rack (>= 1.0)
     webmock (1.11.0)
@@ -321,48 +358,50 @@ PLATFORMS
 DEPENDENCIES
   SystemTimer
   actionmailer_inline_css (~> 1.3.0)
+  airbrake
+  better_errors
+  binding_of_caller
   bitbucket_rest_api
-  bson (= 1.6.2)
-  bson_ext (= 1.6.2)
+  bson
+  bson_ext
   campy
   capistrano
-  capistrano_colors
   capybara
+  coveralls
   database_cleaner (~> 0.6.0)
   debugger
-  devise (~> 1.5.3)
+  devise (~> 1.5.4)
   email_spec
   eventmachine
   execjs
   fabrication (~> 1.3.0)
+  foreman
+  gitlab!
   haml
   hipchat
   hoi
   hoptoad_notifier (~> 2.4)
   htmlentities (~> 4.3.0)
+  httparty
   inherited_resources
-  kaminari
+  kaminari (>= 0.14.1)
   launchy
   lighthouse-api
-  mongo (= 1.6.2)
-  mongoid (~> 2.4.10)
+  meta_request
+  mongo
+  mongoid (~> 2.7.1)
   mongoid_rails_migrations
-  nokogiri
-  oa-core
   octokit (~> 1.0.0)
-  omniauth
   omniauth-github
   oruen_redmine_client
   pivotal-tracker
-  pry
   pry-rails
   rack-ssl
   rack-ssl-enforcer
-  rails (= 3.2.8)
+  rails (= 3.2.13)
   rails_autolink (~> 1.0.9)
   rainbows
   ri_cal
-  rspec (~> 2.6)
   rspec-rails (~> 2.6)
   ruby-debug
   ruby-fogbugz
@@ -373,8 +412,9 @@ DEPENDENCIES
   timecop
   turbo-sprockets-rails3
   uglifier (>= 1.0.3)
+  underscore-rails
   unicorn
-  useragent (~> 0.3.1)
+  useragent (~> 0.4.16)
   webmock
   xmpp4r
   yajl-ruby
