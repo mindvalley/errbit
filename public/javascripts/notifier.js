@@ -862,13 +862,13 @@ printStackTrace.implementation.prototype = {
                     _outputData = null;
                 
                 _outputData = {
-                    request_url: request_url,
+                    request_url: '<![CDATA[' + request_url + ']]>',
                     request_action: (error.action || ''),
                     request_component: component,
                     request: (function () {
                         if (request_url || component) {
                             error['cgi-data'] = error['cgi-data'] || {};
-                            error['cgi-data'].HTTP_USER_AGENT = navigator.userAgent;
+                            error['cgi-data'].HTTP_USER_AGENT = '<![CDATA[' + navigator.userAgent + ']]>';
                             return Util.merge(outputData.request, _composeRequestObj(methods, error));
                         } else {
                             return {}
@@ -973,7 +973,7 @@ printStackTrace.implementation.prototype = {
                     
                     backtrace.push({
                         'function': matches[1],
-                        file: file,
+                        file: file.replace(/&/g, "&amp;"),
                         line: matches[3]
                     });
                 }
@@ -1018,7 +1018,7 @@ printStackTrace.implementation.prototype = {
     window.onerror = function (message, file, line) {
         setTimeout(function () {
             new Notifier().notify({
-                message: message,
+                message: '<![CDATA[' + message + ']]>',
                 stack: '()@' + file + ':' + line
             });
         }, 0);
